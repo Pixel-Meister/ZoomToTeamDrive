@@ -1,3 +1,5 @@
+const MONTHS_BACK = 2;
+
 const scriptProperties = PropertiesService.getScriptProperties();
 function privateInfo() {
   scriptProperties.setProperties({
@@ -68,7 +70,7 @@ async function main(){
   token = authInfo.access_token;
   const users = await getUserData(); //array of user urls
   for(let user of users){
-    const meetingArray = await getRecordedMeetings(user,64);
+    const meetingArray = await getRecordedMeetings(user,MONTHS_BACK);
     for (const [key,value] of Object.entries(meetingArray)){
       //console.log(key);
       //console.log(value);
