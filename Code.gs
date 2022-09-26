@@ -63,7 +63,7 @@ async function toGoogleDrive(name,fileUrl,folderId){
   Drive.Files.insert(schema,mediaData,resource);
 }
 
-async function test(){
+async function main(){
   const authInfo = await fetchData(`https://zoom.us/oauth/token?grant_type=account_credentials&account_id=${scriptProperties.getProperty("ACCOUNT_ID")}`,"POST",{Authorization:`Basic ${scriptProperties.getProperty("BASE64_ID_SECRET")}`});
   token = authInfo.access_token;
   const users = await getUserData(); //array of user urls
